@@ -16,6 +16,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
+                <!-- Navbar, collapsed -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -26,7 +27,9 @@
                     <span class="navbar-brand"><i class="fa fa-gamepad fa-lg"></i></span>
                     <a class="navbar-brand" href="index.php">The Undertaking</a>
                 </div>
+                <!-- Navbar -->
                 <div id="navbar" class="navbar-collapse collapse">
+                    <!-- Left alignment -->
                     <ul class="nav navbar-nav">
                         <form class="navbar-form navbar-left" role="search">
                             <div class="input-group">
@@ -39,6 +42,7 @@
                             </div>
                         </form>
                     </ul>
+                    <!-- Right alignment -->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse Games <span class="caret"></span></a>
@@ -64,13 +68,44 @@
             </div>
         </nav>
 
-        <!-- Carousel -->
-        <h3>Featured Games</h3>
-        <div class="carousel carousel-container">
-            <div class="carousel-content">
-                <div><img src="media/featured1.jpg"></div>
-                <div><img src="media/featured2.png"></div>
-                <div><img src="media/featured3.jpg"></div>
+        <!-- Main content -->
+        <div class="container-fluid">
+            <!-- Carousel header -->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h3>Featured Games</h3>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <!-- Carousel -->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="carousel carousel-container">
+                        <div class="carousel-content">
+                            <div class="carousel-slide"><img src="media/featured1.jpg"></div>
+                            <div class="carousel-slide"><img src="media/featured2.jpg"></div>
+                            <div class="carousel-slide"><img src="media/featured3.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <!-- Website description -->
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h3>What is the Undertaking?</h3>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row>">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <hr/>
+                </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
 

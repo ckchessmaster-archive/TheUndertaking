@@ -6,12 +6,14 @@ body {
 /* Carousel */
 .carousel-container {
     position: relative;
-    width: 750px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
-.carousel-content div > img {
-    max-width: 100%;
+.carousel-slide > img {
+    height: 400px;
+    max-height: 400px;
+    width: auto;
 }
 
 /* Miscellaneous */
