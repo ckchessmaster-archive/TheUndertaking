@@ -7,10 +7,14 @@
         <title>The Undertaking</title>
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,11 +23,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">The Undertaking</a>
+                    <span class="navbar-brand"><i class="fa fa-gamepad fa-lg"></i></span>
+                    <a class="navbar-brand" href="index.php">The Undertaking</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <!-- Search bar here -->
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="input-group">
+                                <input type="text" class="rounded form-control" placeholder="Search by title">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default rounded" type="submit">
+                                        <i class="fa fa-adn fa-lg"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -44,13 +58,26 @@
                             </ul>
                         </li>
                         <li><a href="#">New Releases</a></li>
-                        <li><a href="#">Log In</a></li>
+                        <button type="button" class="btn btn-default navbar-btn">Log In</button>
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </nav>
+
+        <!-- Carousel -->
+        <h3>Featured Games</h3>
+        <div class="carousel carousel-container">
+            <div class="carousel-content">
+                <div><img src="media/featured1.jpg"></div>
+                <div><img src="media/featured2.png"></div>
+                <div><img src="media/featured3.jpg"></div>
+            </div>
+        </div>
+
         <!-- JavaScript -->
         <script src="../resources/lib/jquery-3.2.1.min.js"></script>
         <script src="../resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
