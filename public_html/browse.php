@@ -61,7 +61,7 @@
                                 <li><a href="browse.php?genre=Sports">Sports</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">New Releases</a></li>
+                        <li><a href="new-releases.php">New Releases</a></li>
                         <button type="button" class="btn btn-default navbar-btn">Log In</button>
                     </ul>
                 </div>
@@ -70,7 +70,7 @@
 
         <!-- Main content -->
         <div class="container-fluid">
-            <!-- Browse header -->
+            <!-- "Browse Games" header -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -78,6 +78,7 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            <!-- Breadcrumbs -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
