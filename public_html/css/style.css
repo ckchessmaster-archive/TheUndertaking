@@ -1,7 +1,11 @@
 body {
     min-height: 1000px;
     padding-top: 70px;
-    /*background-color: black;*/
+}
+
+/* Results */
+.results-container {
+    overflow: scroll;
 }
 
 /* Carousel */

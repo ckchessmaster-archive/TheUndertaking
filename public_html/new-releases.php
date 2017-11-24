@@ -74,7 +74,9 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h3>New Releases</h3>
+                    <div class="page-header">
+                        <h3>New Releases</h3>
+                    </div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -84,8 +86,8 @@
                 <div class="col-md-6">
                     <ol class="breadcrumb">
                         <li><a href='index.php'>Home</a></li>
-                        <li><a href='new-releases.php'>New Releases</a></li>
-                        <li class='active'>All Games</li>
+                        <li><a href='browse.php'>Browse Games</a></li>
+                        <li class='active'>New Releases</li>
                     </ol>
                 </div>
                 <div class="col-md-3"></div>
