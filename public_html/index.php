@@ -11,10 +11,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Heebo:400,900|Kanit:900|Karla" rel="stylesheet">
     </head>
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <!-- Navbar, collapsed -->
                 <div class="navbar-header">
@@ -24,8 +26,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <span class="navbar-brand"><i class="fa fa-gamepad fa-lg"></i></span>
-                    <a class="navbar-brand" href="index.php">The Undertaking</a>
+                    <a href="index.php" class="navbar-brand"><i id="logo" class="fa fa-gamepad fa-lg"></i> The Undertaking</a>
                 </div>
                 <!-- Navbar -->
                 <div id="navbar" class="navbar-collapse collapse">
@@ -62,7 +63,7 @@
                             </ul>
                         </li>
                         <li><a href="new-releases.php">New Releases</a></li>
-                        <button type="button" class="btn btn-default navbar-btn">Log In</button>
+                        <button type="button" class="btn btn-primary navbar-btn">Log In</button>
                     </ul>
                 </div>
             </div>

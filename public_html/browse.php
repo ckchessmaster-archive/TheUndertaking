@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Heebo:400,900|Kanit:900|Karla" rel="stylesheet">
     </head>
     <body>
         <!-- Navigation -->
@@ -62,7 +64,7 @@
                             </ul>
                         </li>
                         <li><a href="new-releases.php">New Releases</a></li>
-                        <button type="button" class="btn btn-default navbar-btn">Log In</button>
+                        <button type="button" class="btn btn-primary navbar-btn">Log In</button>
                     </ul>
                 </div>
             </div>
@@ -125,6 +127,37 @@
                                 </div>
                             </div>
                         </div>
+                        <hr/>
+                        <div class="result row">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{Game Title}</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="result row">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{Game Title}</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
                         <div class="result row">
                             <div class="media">
                                 <div class="media-left">

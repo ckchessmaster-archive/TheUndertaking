@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Heebo:400,900|Kanit:900|Karla" rel="stylesheet">
     </head>
     <body>
         <!-- Navigation -->
@@ -62,7 +64,7 @@
                             </ul>
                         </li>
                         <li><a href="new-releases.php">New Releases</a></li>
-                        <button type="button" class="btn btn-default navbar-btn">Log In</button>
+                        <button type="button" class="btn btn-primary navbar-btn">Log In</button>
                     </ul>
                 </div>
             </div>

@@ -1,11 +1,106 @@
+/* COLOR PALETTE
+   black:           #26282D
+   gray, dark:      #303239
+   orange, light:   #FFAB91
+   white:           #EEEEEE */
+
+/**************************************************
+ GLOBAL
+**************************************************/
 body {
-    min-height: 1000px;
-    padding-top: 70px;
+    background-color: #303239;
+    color: #616161;
+    font-family: 'Heebo', sans-serif;
+    padding: 7rem 0 2rem 0;
 }
 
-/* Results */
-.results-container {
-    overflow: scroll;
+/**************************************************
+ Navigation
+**************************************************/
+/* Navbar */
+.navbar {
+    background-color: #26282D;
+    border-color: #26282D;
+}
+.navbar, .navbar .btn {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Logo */
+.navbar #logo {
+    margin-right: 0.5rem;
+}
+
+/* Title */
+.navbar .navbar-brand {
+    color: #FFAB91;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 900;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #FF9878;
+}
+
+/* Search bar */
+.navbar input {
+    background-color: #222428;
+    color: #999999;
+    font-family: 'Karla', sans-serif;
+    font-weight: normal;
+    border: 1px solid #222428;
+}
+.navbar input:focus {
+    border-color: #222428;
+    box-shadow: none;
+    outline: none;
+}
+.navbar .input-group-btn > button,
+.navbar .input-group-btn > button:active {
+    background-color: #222428;
+    border: 1px solid #222428;
+}
+.navbar .input-group-btn > button > i {
+    color: #81C784;
+}
+
+/* Link */
+.navbar .navbar-nav > li > a {
+    color: #FFAB91;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #FF9878;
+}
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+    color: #FF9878;
+    background-color: #26282D;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+    color: #FF9878;
+    background-color: #26282D;
+}
+
+/* Button */
+
+
+/**************************************************
+ MAIN CONTENT
+**************************************************/
+.col-md-6 {
+    background-color: #EEEEEE;
+}
+
+/* Headers */
+.page-header {
+    padding: 0;
+    border-bottom: 0.2rem solid #CCCCCC;
 }
 
 /* Carousel */
@@ -14,19 +109,33 @@ body {
     margin: 0 auto;
     overflow: hidden;
 }
-
 .carousel-slide > img {
-    height: 400px;
-    max-height: 400px;
-    width: auto;
+    border: 0.8rem solid #CCCCCC;
+    height: 40rem;
+    max-height: 40rem;
+    width: 100%;
 }
 
-.slick-prev,
-.slick-next {
-    color: #333;
+/* Results */
+.results hr {
+    border: 0.2rem solid #CCCCCC;
+    margin: 0;
+}
+.results-container {
+    background-color: #F5F5F5;
+    height: 45rem;
+    overflow-y: scroll;
+}
+.result {
+    padding: 2rem;
+}
+.result .fa-angle-right {
+    margin-left: 0.5rem;
 }
 
-/* Miscellaneous */
+/**************************************************
+ MISCELLANEOUS
+**************************************************/
 .rounded {
-    border-radius: 20px;
+    border-radius: 1.5rem;
 }
