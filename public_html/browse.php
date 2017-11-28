@@ -24,13 +24,12 @@
                 <div class="col-md-6">
                     <ol class="breadcrumb">
                         <?php
-                        $genre = $_GET['genre'];
                         if (isset($_GET['genre']))
                         {
                             echo "<li><a href='index.php'>Home</a></li>";
                             echo "<li><a href='browse.php'>Browse Games</a></li>";
                             echo "<li>By Genre</li>";
-                            echo "<li class='active'>$genre</li>";
+                            echo "<li class='active'>" . $_GET['genre'] . "</li>";
                         }
                         else
                         {
