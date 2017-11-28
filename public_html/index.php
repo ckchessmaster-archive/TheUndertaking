@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="eng">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>The Undertaking</title>
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Heebo:400,900|Kanit:900|Karla" rel="stylesheet">
+        <?php include("shared/header.html"); ?>
     </head>
     <body>
         <!-- Navigation -->
