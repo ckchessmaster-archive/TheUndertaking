@@ -1,0 +1,134 @@
+.equal {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.vcenter {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  flex-flow: column;
+}
+
+/* Adjust the default bootstrap */
+/* Create custom navbar */
+.navbar-custom {
+  background-color: #808080;
+  border-color: #ffa500;
+}
+.navbar-custom .navbar-brand {
+  color: #ffa500;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-custom .navbar-text {
+  color: #ffa500;
+}
+.navbar-custom .navbar-nav > li > a {
+  color: #ffa500;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+  color: #ffffff;
+  background-color: #ffa500;
+}
+
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #ffa500;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #ffa500;
+}
+.navbar-custom .navbar-toggle {
+  border-color: #ffa500;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #ffa500;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: #ffa500;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+  border-color: #ffa500;
+}
+.navbar-custom .navbar-link {
+  color: #ffa500;
+}
+.navbar-custom .navbar-link:hover {
+  color: #ffffff;
+}
+
+.navbar-custom .navbar-
+
+@media (max-width: 767px) {
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffa500;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #ffa500;
+  }
+}
+
+/* Create custom button */
+.btn-custom {
+  color: #ffffff;
+  background-color: #808080;
+  border-color: #FFA500;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active,
+.open .dropdown-toggle.btn-custom {
+  color: #ffffff;
+  background-color: #FFA500;
+  border-color: #FFA500;
+}
+
+.btn-custom:active,
+.btn-custom.active,
+.open .dropdown-toggle.btn-custom {
+  background-image: none;
+}
+
+.btn-custom.disabled,
+.btn-custom[disabled],
+fieldset[disabled] .btn-custom,
+.btn-custom.disabled:hover,
+.btn-custom[disabled]:hover,
+fieldset[disabled] .btn-custom:hover,
+.btn-custom.disabled:focus,
+.btn-custom[disabled]:focus,
+fieldset[disabled] .btn-custom:focus,
+.btn-custom.disabled:active,
+.btn-custom[disabled]:active,
+fieldset[disabled] .btn-custom:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #808080;
+  border-color: #FFA500;
+}
+
+.btn-custom .badge {
+  color: #808080;
+  background-color: #ffffff;
+}

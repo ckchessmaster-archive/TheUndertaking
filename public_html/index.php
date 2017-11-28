@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 <head>
+  <?php include('shared/header.html');?>
 </head>
 <body>
-  Test page please ignore
-  Just testing -KG
+  <?php include('shared/nav.php');?>
 </body>
