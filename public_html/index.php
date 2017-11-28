@@ -5,7 +5,6 @@
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
-
         <!-- Main content -->
         <div class="container-fluid">
             <!-- Carousel header -->
@@ -53,11 +52,5 @@
                 <div class="col-md-3"></div>
             </div>
         </div>
-
-        <!-- JavaScript -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-        <script src="js/script.js"></script>
     </body>
 </html>
