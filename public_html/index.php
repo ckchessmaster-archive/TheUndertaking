@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="eng">
     <head>
-        <?php include("shared/header.html"); ?>
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+      <?php include("shared/header.html"); ?>
+
+      <!-- JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+      <script src="js/script.js"></script>
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
