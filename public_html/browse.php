@@ -62,25 +62,23 @@ require_once('../resources/dbManager.php'); ?>
 
 <?php
 function displayGames() {
+    // $conn = getConnection();
+    //
+    // $stmt  = $conn->prepare("CALL GetGamesByGenre(':genre')");
+    //
+    // if(isset($_GET['genre'])) {
+    //   $stmt->bindValue(':genre', $_GET["genre"]);
+    // } else {
+    //   $stmt->bindValue(':genre', '%%');
+    // }
+    // $stmt->execute();
+    // //$result = $stmt->fetchAll();
+    //
+    // $conn = NULL;
+
     $conn = getConnection();
-
-    $stmt  = $conn->prepare("CALL GetGamesByGenre(':genre')");
-
-    if(isset($_GET['genre'])) {
-      $stmt->bindValue(':genre', $_GET["genre"]);
-    } else {
-      $stmt->bindValue(':genre', '%%');
-    }
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-
-    $conn = NULL;
-
-    $conn = getConnection();
-    $sql = "CALL GetGamesByGenre('Action')";
+    $sql = "CALL GetGamesByGenre('" . $_GET["genre"] . "')";
     $result = $conn->query($sql);
-
-    echo count($result);
 
     foreach($result as $row) { ?>
       <div class="result row">
