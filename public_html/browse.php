@@ -1,5 +1,5 @@
 <?php session_start();
-require_once('../resources/DBManager.php'); ?>
+require_once('../resources/dbManager.php'); ?>
 
 <!DOCTYPE html>
 <html lang="eng">
@@ -72,8 +72,17 @@ function displayGames() {
       $stmt->bindValue(':genre', '%%');
     }
     $stmt->execute();
+    $result = $stmt->fetchAll();
 
-    foreach($stmt as $row) { ?>
+    $conn = NULL;
+
+    $conn = getConnection();
+    $sql = "CALL GetGamesByGenre('Action')";
+    $result = $conn->query($sql);
+
+    echo count($result);
+
+    foreach($result as $row) { ?>
       <div class="result row">
           <div class="media">
               <div class="media-left">
