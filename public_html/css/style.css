@@ -7,6 +7,7 @@
 /**************************************************
  GLOBAL
 **************************************************/
+/* Body */
 body {
     background-color: #303239;
     color: #616161;
@@ -93,8 +94,14 @@ body {
 /**************************************************
  MAIN CONTENT
 **************************************************/
+/* Center segment */
 .col-md-6 {
     background-color: #EEEEEE;
+}
+@media (max-width: 992px) {
+    .row {
+        background-color: #EEEEEE;
+    }
 }
 
 /* Headers */
@@ -131,6 +138,20 @@ body {
 }
 .result .fa-angle-right {
     margin-left: 0.5rem;
+}
+
+/* Game highlights */
+#game-highlights span {
+    display: block;
+}
+
+/* ESRB rating */
+.esrb-rating {
+    float: left;
+}
+.esrb-rating img {
+    height: 12.5rem;
+    margin-right: 1rem;
 }
 
 /**************************************************
