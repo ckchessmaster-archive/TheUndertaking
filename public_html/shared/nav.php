@@ -15,9 +15,9 @@
         <div id="navbar" class="navbar-collapse collapse">
             <!-- Left alignment -->
             <ul class="nav navbar-nav">
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" role="search" method="get" action="search.php">
                     <div class="input-group">
-                        <input type="text" class="rounded form-control" placeholder="Search by title">
+                        <input type="text" class="rounded form-control" placeholder="Search by title" name="searchKey" id="searchKey">
                         <span class="input-group-btn">
                             <button class="btn btn-default rounded" type="submit">
                                 <i class="fa fa-adn fa-lg"></i>

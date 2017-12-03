@@ -53,17 +53,17 @@ function displayGames() {
     $stmt  = $conn->prepare("CALL GetGamesByGenre(?)");
 
     if (isset($_GET['genre'])) {
-      $stmt->bindParam(1, $_GET["genre"]);
+        $stmt->bindParam(1, $_GET['genre']);
     } else {
-      $stmt->bindValue(1, '%%');
+        $stmt->bindValue(1, '%%');
     }
     $stmt->execute();
 
     $dupeCheck = array();
     foreach($stmt as $row) {
-      // Don't display duplicate rows
+        // Don't display duplicate rows
       if(!isset($dupeCheck[$row["GameID"]])) {
-        $dupeCheck[$row["GameID"]] = 1;
+          $dupeCheck[$row["GameID"]] = 1;
       ?>
       <div class="result row">
           <div class="media">
@@ -80,7 +80,7 @@ function displayGames() {
           </div>
       </div> <?php
     } else {
-      continue;
+          continue;
     } // end if/else
   } // end foreach
 } // end displayGames
