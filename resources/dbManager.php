@@ -1,8 +1,8 @@
 <?php
 function getConnection() {
-  $servername = "localhost";
+  $servername = "192.168.1.98";
   $username = "group2";
-  $password = "fall2017776343";
+  $password = "dxgBDmvja45!";
   $dbname = "group2";
 
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

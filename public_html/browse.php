@@ -1,3 +1,6 @@
+<?php session_start();
+require_once('../resources/dbManager.php'); ?>
+
 <!DOCTYPE html>
 <html lang="eng">
     <head>
@@ -48,71 +51,49 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="results results-container container-fluid">
-                        <div class="result row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{Game Title}</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="result row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{Game Title}</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="result row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{Game Title}</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="result row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{Game Title}</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php displayGames(); ?>
                     </div>
                 </div>
                 <div class="col-md-3"></div>
             </div>
         </div>
-
-
     </body>
 </html>
+
+<?php
+function displayGames() {
+    $conn = getConnection();
+
+    $stmt  = $conn->prepare("CALL GetGamesByGenre(?)");
+    if(isset($_GET['genre'])) {
+      $stmt->bindParam(1, $_GET["genre"]);
+    } else {
+      $stmt->bindValue(1, '%%');
+    }
+    $stmt->execute();
+
+    $dupeCheck = array();
+    foreach($stmt as $row) {
+      if(!isset($dupeCheck[$row["GameID"]])) {
+        $dupeCheck[$row["GameID"]] = 1;
+      ?>
+      <div class="result row">
+          <div class="media">
+              <div class="media-left">
+                  <a href="#">
+                      <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
+                  </a>
+              </div>
+              <div class="media-body">
+                  <h4 class="media-heading"><?php echo $row["Title"]; ?></h4>
+                  <p><?php echo $row["Description"]; ?></p>
+                  <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+              </div>
+          </div>
+      </div> <?php
+    } else {
+      continue;
+    }//end if/else
+  }//end foreach
+}//end displayGames
+?>
