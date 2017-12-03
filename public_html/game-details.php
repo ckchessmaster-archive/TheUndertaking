@@ -106,6 +106,7 @@ function displayGame() {
                     } ?>
                 </span>
             </div>
+            <br>
             <div class="page-header"></div>
             <div><iframe class="trailer" width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
         </div>
