@@ -28,5 +28,5 @@ FROM Game
 INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
 INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
 INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
-WHERE Game.Title LIKE %title%;
+WHERE Game.Title LIKE '%title%';
 END
