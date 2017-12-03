@@ -51,7 +51,8 @@ function displayGames() {
     $conn = getConnection();
 
     $stmt  = $conn->prepare("CALL GetGamesByGenre(?)");
-    if(isset($_GET['genre'])) {
+
+    if (isset($_GET['genre'])) {
       $stmt->bindParam(1, $_GET["genre"]);
     } else {
       $stmt->bindValue(1, '%%');

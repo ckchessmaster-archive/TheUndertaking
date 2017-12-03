@@ -1,7 +1,7 @@
 <?php session_start();
 require_once('../resources/dbManager.php');
 
-//Go home if we entered this page by mistake
+// Go home if we entered this page by mistake
 if (!isset($_GET["gameID"])) {
   header('Location: index.php');
   exit();
@@ -16,7 +16,7 @@ if (!isset($_GET["gameID"])) {
         <?php include("shared/nav.php"); ?>
         <div class="container-fluid">
             <?php displayGame(); ?>
-                    <!-- Game highlights  -->
+            <!-- Game highlights  -->
             <br>
             <div class="row">
                 <div class="col-md-3"></div>
@@ -71,55 +71,56 @@ if (!isset($_GET["gameID"])) {
 
 <?php
 function displayGame() {
-  $conn = getConnection();
+    $conn = getConnection();
 
-  $stmt  = $conn->prepare("CALL GetGameByID(?)");
-  $stmt->bindParam(1, $_GET["gameID"]);
-  $stmt->execute();
-  $result = $stmt->fetchAll(); ?>
-  <!-- Game title header -->
-  <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <div class="page-header">
-              <h3><?php echo $result[0]["Title"]; ?></h3>
-          </div>
-      </div>
-      <div class="col-md-3"></div>
-  </div>
-  <!-- Game description -->
-  <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <p><?php echo $result[0]["Description"]; ?></p>
-      </div>
-      <div class="col-md-3"></div>
-  </div>
-  <!-- Game details -->
-  <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <div class="esrb-rating">
-              <img src="media/esrb-ratings/<?php echo $result[0]["Image"]; ?>" alt="<?php echo $result[0]["RatingFull"]; ?>"/>
-          </div>
-          <div id="game-highlights">
-              <span><strong>Rating: </strong><?php echo $result[0]["RatingFull"]; ?></span>
-              <span><strong>Developer: </strong><?php echo $result[0]["Developer"]; ?></span>
-              <span><strong>Publisher: </strong><?php echo $result[0]["Publisher"]; ?></span>
-              <span><strong>Release date: </strong><?php echo $result[0]["ReleaseDate"]; ?></span>
-              <span>
-                <strong>Genre(s): </strong>
-                <?php $index = 0;
-                foreach($result as $row) {
-                  echo '<a href=browse.php?genre=' . $result[$index]["Genre"] . ' class="badge badge-Info">' .$result[$index]["Genre"] ."</a> ";
-                  $index += 1;
-                } ?>
-              </span>
-          </div>
-          <div class="page-header"></div>
-          <div><iframe class="trailer" width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
-      </div>
-      <div class="col-md-3"></div>
-  </div> <?php
+    $stmt  = $conn->prepare("CALL GetGameByID(?)");
+    $stmt->bindParam(1, $_GET["gameID"]);
+    $stmt->execute();
+    $result = $stmt->fetchAll(); ?>
+    <!-- Game title header -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="page-header">
+                <h3><?php echo $result[0]["Title"]; ?></h3>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <!-- Game description -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <p><?php echo $result[0]["Description"]; ?></p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <!-- Game details -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 page">
+            <div class="esrb-rating">
+                <img src="media/esrb-ratings/<?php echo $result[0]["Image"]; ?>" alt="<?php echo $result[0]["RatingFull"]; ?>"/>
+            </div>
+            <div id="game-highlights">
+                <span><strong>Rating: </strong><?php echo $result[0]["RatingFull"]; ?></span>
+                <span><strong>Developer: </strong><?php echo $result[0]["Developer"]; ?></span>
+                <span><strong>Publisher: </strong><?php echo $result[0]["Publisher"]; ?></span>
+                <span><strong>Release date: </strong><?php echo $result[0]["ReleaseDate"]; ?></span>
+                <span>
+                    <strong>Genre(s): </strong>
+                    <?php $index = 0;
+                    foreach($result as $row) {
+                        echo '<a href=browse.php?genre=' . $result[$index]["Genre"] . ' class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
+                        $index += 1;
+                    } ?>
+                </span>
+            </div>
+            <div class="page-header"></div>
+            <div><iframe class="trailer" width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <?php
 }
 ?>
