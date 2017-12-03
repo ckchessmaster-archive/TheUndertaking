@@ -5,7 +5,6 @@
     </head>
     <body>
       <?php include("shared/nav.php"); ?>
-
         <!-- Main content -->
         <div class="container-fluid">
             <!-- "New Releases" header -->
@@ -31,6 +30,5 @@
                 <div class="col-md-3"></div>
             </div>
         </div>
-
     </body>
 </html>

@@ -5,7 +5,6 @@
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
-
         <div class="container-fluid">
             <!-- Game title header -->
             <div class="row">
@@ -17,6 +16,7 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            <!-- Game description -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -24,6 +24,7 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            <!-- Game details -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -43,16 +44,42 @@
                 <div class="col-md-3"></div>
             </div>
             <br>
+            <!-- Comment section -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <form>
-                        
+                        <h3>Leave a Comment</h3>
+                        <?php
+                            // if not logged in
+                            echo "<p>Not currently logged in. <a href='#'>Log in?</a></p>";
+                        ?>
+                        <textarea id="comment-box"></textarea>
+                        <button type="button" class="btn btn-primary navbar-btn">Post Comment</button>
                     </form>
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <ul class="comment-list">
+                        <li class="comment">
+                            <div class="comment-image">
+                                <img src="media/avatar.svg"/>
+                            </div>
+                            <div class="comment-username">
+                                <h5>{Username}</h5>
+                            </div>
+                            <div class="comment-text">
+                                <p>This is a fake comment.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
         </div>
-
     </body>
 </html>
