@@ -74,7 +74,11 @@ function displayGames() {
               </div>
               <div class="media-body">
                   <h4 class="media-heading"><?php echo $row["Title"]; ?></h4>
-                  <p><?php echo $row["Description"]; ?></p>
+                  <p>
+                      <?php
+                      echo shortenDescription($row["Description"], 140);
+                      ?>
+                  </p>
                   <p><a href="game-details.php?gameID=<?php echo $row["GameID"] ?>" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
               </div>
           </div>
@@ -84,4 +88,12 @@ function displayGames() {
     } // end if/else
   } // end foreach
 } // end displayGames
+
+function shortenDescription($text, $length) {
+    if(strlen($text) > $length) {
+        $text = substr($text, 0, strpos($text, ' ', $length));
+        $text .= '...';
+    }
+    return $text;
+}
 ?>
