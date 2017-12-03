@@ -77,31 +77,21 @@ function displayGame() {
     $stmt->bindParam(1, $_GET["gameID"]);
     $stmt->execute();
     $result = $stmt->fetchAll(); ?>
-    <!-- Game title header -->
+
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
+            <!-- Game title header -->
             <div class="page-header">
                 <h3><?php echo $result[0]["Title"]; ?></h3>
             </div>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-    <!-- Game description -->
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+            <!-- Game description -->
             <p><?php echo $result[0]["Description"]; ?></p>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-    <!-- Game details -->
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 page">
+            <!-- Game ESRB rating -->
             <div class="esrb-rating">
                 <img src="media/esrb-ratings/<?php echo $result[0]["Image"]; ?>" alt="<?php echo $result[0]["RatingFull"]; ?>"/>
             </div>
+            <!-- Game highlights -->
             <div id="game-highlights">
                 <span><strong>Rating: </strong><?php echo $result[0]["RatingFull"]; ?></span>
                 <span><strong>Developer: </strong><?php echo $result[0]["Developer"]; ?></span>
