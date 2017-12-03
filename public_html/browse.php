@@ -8,23 +8,16 @@ require_once('../resources/dbManager.php'); ?>
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
-
         <!-- Main content -->
         <div class="container-fluid">
-            <!-- "Browse Games" header -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
+                    <!-- "Browse Games" header -->
                     <div class="page-header">
                         <h3>Browse Games</h3>
                     </div>
-                </div>
-                <div class="col-md-3"></div>
-            </div>
-            <!-- Breadcrumbs -->
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                    <!-- Breadcrumbs -->
                     <ol class="breadcrumb">
                         <?php
                         if (isset($_GET['genre']))
@@ -42,14 +35,7 @@ require_once('../resources/dbManager.php'); ?>
                         }
                         ?>
                     </ol>
-                </div>
-                <div class="col-md-3"></div>
-            </div>
-
-            <!-- Results -->
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                    <!-- Results -->
                     <div class="results results-container container-fluid">
                         <?php displayGames(); ?>
                     </div>
@@ -93,7 +79,7 @@ function displayGames() {
       </div> <?php
     } else {
       continue;
-    }//end if/else
-  }//end foreach
-}//end displayGames
+    } // end if/else
+  } // end foreach
+} // end displayGames
 ?>
