@@ -1,7 +1,6 @@
 /* COLOR PALETTE
    black:           #26282D
    gray, dark:      #303239
-   orange, light:   #FFAB91
    white:           #EEEEEE */
 
 /**************************************************
@@ -15,6 +14,45 @@ body {
     padding: 7rem 0 2rem 0;
 }
 
+/* Videos */
+.video-container {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+.btn-primary {
+    background: #81C784;
+    color: white;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #93CF95;
+}
+.btn-primary:active, .btn-primary.active {
+    background: #93CF95;
+    box-shadow: none;
+}
+
 /**************************************************
  Navigation
 **************************************************/
@@ -23,7 +61,7 @@ body {
     background-color: #26282D;
     border-color: #26282D;
 }
-.navbar, .navbar .btn {
+.navbar, .btn {
     font-family: 'Heebo', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
@@ -36,13 +74,13 @@ body {
 
 /* Title */
 .navbar .navbar-brand {
-    color: #FFAB91;
+    color: #4DB6AC;
     font-family: 'Kanit', sans-serif;
     font-weight: 900;
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-    color: #FF9878;
+    color: #5FBDB4;
 }
 
 /* Search bar */
@@ -66,49 +104,58 @@ body {
 .navbar .input-group-btn > button > i {
     color: #81C784;
 }
+.navbar .input-group-btn > button > i:hover,
+.navbar .input-group-btn > button > i:focus {
+    color: #93CF95;
+}
 
 /* Link */
 .navbar .navbar-nav > li > a {
-    color: #FFAB91;
+    color: #B0BEC5;
 }
 .navbar .navbar-nav > li > a:hover,
 .navbar .navbar-nav > li > a:focus {
-    color: #FF9878;
+    color: #CDD6DB;
 }
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:hover,
 .navbar .navbar-nav > .active > a:focus {
-    color: #FF9878;
+    color: #CDD6DB;
     background-color: #26282D;
 }
 .navbar .navbar-nav > .open > a,
 .navbar .navbar-nav > .open > a:hover,
 .navbar .navbar-nav > .open > a:focus {
-    color: #FF9878;
+    color: #CDD6DB;
     background-color: #26282D;
 }
-
-/* Button */
-
 
 /**************************************************
  MAIN CONTENT
 **************************************************/
-/* Center segment */
+/* Middle segment */
 .col-md-6 {
     background-color: #EEEEEE;
 }
-
 @media (max-width: 992px) {
     .row {
         background-color: #EEEEEE;
     }
 }
+.page {
+    padding: 2rem 4rem;
+}
 
-/* Headers */
+/* Headers and header rules */
 .page-header {
+    margin-top: 0;
     padding: 0;
     border-bottom: 0.2rem solid #CCCCCC;
+}
+.page hr {
+    border: 0.12rem solid #CCCCCC;
+    clear: both;
+    margin: 3rem 0;
 }
 
 /* Carousel */
@@ -124,7 +171,7 @@ body {
     width: 100%;
 }
 
-/* Results */
+/* Browsing and search results */
 .results hr {
     border: 0.2rem solid #CCCCCC;
     margin: 0;
@@ -141,32 +188,52 @@ body {
     margin-left: 0.5rem;
 }
 
-/* Game highlights */
-#game-highlights span {
-    display: block;
-}
-
 /* ESRB rating */
 .esrb-rating {
     float: left;
 }
 .esrb-rating img {
-    height: 12.5rem;
-    margin-right: 1rem;
+    height: 11rem;
+    margin: 0 1.5rem 3rem 0;
 }
 
+/* Game highlights */
+#game-highlights span {
+    display: block;
+}
+
+/* Comment section */
 #comment-box {
     resize: vertical;
-    height: 250px;
+    height: 200px;
     width: 100%;
 }
-
-/* Comment */
+.comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 500px;
+    overflow: auto;
+}
+.comment-list li {
+    margin: 2rem 0;
+}
+.comment-list li > div {
+    display: table-cell;
+}
 .comment-image {
-    /*float: left;*/
+    float: left;
+    height: 100%;
+    width: 6rem;
+    margin: 1rem 2rem 0 0;
 }
 .comment-image img {
-    height: 5rem;
+    width: 100%;
+}
+.comment-subtext {
+    color: #AAAAAA;
+    font-family: Verdana;
+    font-size: 11px;
 }
 
 /**************************************************
