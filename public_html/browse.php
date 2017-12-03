@@ -60,6 +60,7 @@ function displayGames() {
 
     $dupeCheck = array();
     foreach($stmt as $row) {
+      // Don't display duplicate rows
       if(!isset($dupeCheck[$row["GameID"]])) {
         $dupeCheck[$row["GameID"]] = 1;
       ?>
@@ -73,7 +74,7 @@ function displayGames() {
               <div class="media-body">
                   <h4 class="media-heading"><?php echo $row["Title"]; ?></h4>
                   <p><?php echo $row["Description"]; ?></p>
-                  <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                  <p><a href="game-details.php?gameID=<?php echo $row["GameID"] ?>" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
               </div>
           </div>
       </div> <?php

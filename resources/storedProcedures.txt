@@ -1,10 +1,21 @@
 CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGamesByGenre`(IN genre VARCHAR(50))
 BEGIN
 SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate,
-       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, Genre.GenreID, Genre.GenreID
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, Genre.GenreID, Genre.Genre
 FROM Game
 INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
 INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
 INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
 WHERE Genre.Genre LIKE genre;
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGameByID`(id int)
+BEGIN
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, ESRB.Image, Genre.GenreID, Genre.Genre
+FROM Game
+INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
+INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
+WHERE Game.GameID=id;
 END
