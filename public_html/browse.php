@@ -12,7 +12,7 @@ require_once('../resources/dbManager.php'); ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 page">
                     <!-- "Browse Games" header -->
                     <div class="page-header">
                         <h3>Browse Games</h3>

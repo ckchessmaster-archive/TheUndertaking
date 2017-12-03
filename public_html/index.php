@@ -18,7 +18,7 @@
             <!-- Carousel header -->
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 page">
                     <div class="page-header">
                         <h3>Featured Games</h3>
                     </div>
