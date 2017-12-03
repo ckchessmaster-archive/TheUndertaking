@@ -74,6 +74,7 @@ function displayGames() {
 
     $dupeCheck = array();
     foreach($stmt as $row) {
+      // Don't display duplicate rows
       if(!isset($dupeCheck[$row["GameID"]])) {
         $dupeCheck[$row["GameID"]] = 1;
       ?>
