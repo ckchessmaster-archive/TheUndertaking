@@ -62,25 +62,21 @@ require_once('../resources/dbManager.php'); ?>
 
 <?php
 function displayGames() {
-    // $conn = getConnection();
-    //
-    // $stmt  = $conn->prepare("CALL GetGamesByGenre(':genre')");
-    //
-    // if(isset($_GET['genre'])) {
-    //   $stmt->bindValue(':genre', $_GET["genre"]);
-    // } else {
-    //   $stmt->bindValue(':genre', '%%');
-    // }
-    // $stmt->execute();
-    // //$result = $stmt->fetchAll();
-    //
-    // $conn = NULL;
-
     $conn = getConnection();
-    $sql = "CALL GetGamesByGenre('" . $_GET["genre"] . "')";
-    $result = $conn->query($sql);
 
-    foreach($result as $row) { ?>
+    $stmt  = $conn->prepare("CALL GetGamesByGenre(?)");
+    if(isset($_GET['genre'])) {
+      $stmt->bindParam(1, $_GET["genre"]);
+    } else {
+      $stmt->bindValue(1, '%%');
+    }
+    $stmt->execute();
+
+    $dupeCheck = array();
+    foreach($stmt as $row) {
+      if(!isset($dupeCheck[$row["GameID"]])) {
+        $dupeCheck[$row["GameID"]] = 1;
+      ?>
       <div class="result row">
           <div class="media">
               <div class="media-left">
@@ -94,7 +90,10 @@ function displayGames() {
                   <p><a href="#" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
               </div>
           </div>
-      </div>
-<?php }
-}
+      </div> <?php
+    } else {
+      continue;
+    }//end if/else
+  }//end foreach
+}//end displayGames
 ?>

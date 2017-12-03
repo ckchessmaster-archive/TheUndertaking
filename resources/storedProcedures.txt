@@ -1,7 +1,10 @@
-CREATE DEFINER=`group2`@`192.168.1.%` PROCEDURE `GetGamesByGenre`(IN genre VARCHAR(50))
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGamesByGenre`(IN genre VARCHAR(50))
 BEGIN
-SELECT * FROM Game
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, Genre.GenreID, Genre.GenreID
+FROM Game
 INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
 INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
 WHERE Genre.Genre LIKE genre;
 END
