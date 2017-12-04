@@ -6,6 +6,14 @@ if (!isset($_GET["gameID"])) {
   header('Location: index.php');
   exit();
 }
+
+// Are we posting a comment?
+
+if(isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == true && isset($_GET["gameID"])) {
+  postComment($_SESSION["username"], $_GET["gameID"], $_GET["comment"]);
+  header('Location: game-details.php?gameID=' . $_GET["gameID"]);
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="eng">
@@ -15,21 +23,25 @@ if (!isset($_GET["gameID"])) {
     <body>
         <?php include("shared/nav.php"); ?>
         <div class="container-fluid">
-            <?php displayGame(); ?>
+            <?php displayGame($_GET["gameID"]); ?>
             <!-- Game highlights  -->
             <br>
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 page">
                     <!-- Comment form -->
-                    <form>
+                    <form action="game-details.php">
                         <h3>Leave a Comment</h3>
-                        <?php
-                            // If not logged in
-                            echo "<p>Not currently logged in. <a href='#'>Log in?</a></p>";
-                        ?>
-                        <textarea id="comment-box"></textarea>
-                        <button type="button" class="btn btn-success navbar-btn">Post Comment</button>
+                        <?php //Check if logged in
+                        if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) { ?>
+                          <input type="hidden" name="func" id="func" value="post"/>
+                          <input type="hidden" name="gameID" id="gameID" value="<?php echo $_GET["gameID"]; ?>"/>
+                          <textarea name="comment" id="comment-box"></textarea>
+                          <button type="submit" class="btn btn-success navbar-btn">Post Comment</button> <?php
+                        } else { ?>
+                          <p>Please login to post.</p>
+                          <a class="btn btn-success navbar-btn" href="login.php?func=login">Login</a> <?php
+                        } ?>
                     </form>
                 </div>
                 <div class="col-md-3"></div>
@@ -39,28 +51,7 @@ if (!isset($_GET["gameID"])) {
                 <div class="col-md-3"></div>
                 <div class="col-md-6 page">
                     <!-- Comment section -->
-                    <ul class="comment-list">
-                        <li class="comment">
-                            <div class="comment-image">
-                                <img src="media/avatar.svg"/>
-                            </div>
-                            <div class="comment-body">
-                                <h5 class="comment-username">{Username} wrote...</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Quisque id diam vel quam elementum pulvinar etiam non quam. At erat pellentesque adipiscing commodo.</p>
-                                <span class="comment-subtext">on December 3, 2017 @ 12:39 AM</span>
-                            </div>
-                        </li>
-                        <li class="comment">
-                            <div class="comment-image">
-                                <img src="media/avatar.svg"/>
-                            </div>
-                            <div class="comment-body">
-                                <h5>{Username} wrote...</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet facilisis magna etiam tempor orci eu lobortis elementum nibh. Quisque id diam vel quam elementum pulvinar etiam non quam. At erat pellentesque adipiscing commodo.</p>
-                                <span class="comment-subtext">on December 3, 2017 @ 12:43 AM</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <?php displayComments($_GET["gameID"]); ?>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -69,11 +60,11 @@ if (!isset($_GET["gameID"])) {
 </html>
 
 <?php
-function displayGame() {
+function displayGame($gameID) {
     $conn = getConnection();
 
     $stmt  = $conn->prepare("CALL GetGameByID(?)");
-    $stmt->bindParam(1, $_GET["gameID"]);
+    $stmt->bindParam(1, $gameID);
     $stmt->execute();
     $result = $stmt->fetchAll(); ?>
 
@@ -112,5 +103,38 @@ function displayGame() {
         <div class="col-md-3"></div>
     </div>
     <?php
+}
+
+function displayComments($gameID) {
+  $conn = getConnection();
+
+  $stmt  = $conn->prepare("CALL GetPostsByGameID(?)");
+  $stmt->bindParam(1, $_GET["gameID"]);
+  $stmt->execute();
+  $result = $stmt->fetchAll(); ?>
+
+  <ul class="comment-list"> <?php
+      foreach($result as $row) { ?>
+        <li class="comment">
+            <div class="comment-image">
+                <img src="media/avatar.svg"/>
+            </div>
+            <div class="comment-body">
+                <h5 class="comment-username"><?php echo $row["Username"] ?></h5>
+                <p><?php echo $row["Comment"] ?></p>
+                <span class="comment-subtext">on <?php echo $row["DatePosted"] ?></span>
+            </div>
+        </li> <?php
+      } ?>
+  </ul> <?php
+}
+
+function postComment($username, $gameID, $comment) {
+  $conn = getConnection();
+  $stmt  = $conn->prepare("CALL CreatePost(?, ?, ?)");
+  $stmt->bindParam(1, $username);
+  $stmt->bindParam(2, $gameID);
+  $stmt->bindParam(3, $comment);
+  $stmt->execute();
 }
 ?>

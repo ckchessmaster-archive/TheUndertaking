@@ -46,9 +46,23 @@ WHERE Game.ReleaseDate > DATE_SUB(NOW(), INTERVAL 1 YEAR)
 ORDER BY Game.ReleaseDate DESC;
 END
 
-CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreateUser`(username VARCHAR(50) , password VARCHAR(128), 
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreateUser`(username VARCHAR(50) , password VARCHAR(128),
 	lastName VARCHAR(50), firstName VARCHAR(50), email VARCHAR(100))
 BEGIN
 INSERT INTO group2.User (Username, Password, FirstName, LastName, EmailAddress)
 VALUES (username, password, lastName, firstName, email);
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreatePost`(username VARCHAR(50) , gameID int, comment TEXT)
+BEGIN
+INSERT INTO group2.Post (GameID, UserID, Comment, DatePosted)
+VALUES (gameID, (SELECT UserID FROM User WHERE Username like username), comment, NOW());
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetPostsByGameID`(gameID int)
+BEGIN
+SELECT * FROM Post
+INNER JOIN User on User.UserID=Post.UserID
+WHERE Post.GameID = gameID
+ORDER BY DatePosted DESC;
 END
