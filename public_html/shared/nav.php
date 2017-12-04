@@ -49,7 +49,11 @@
                     </ul>
                 </li>
                 <li><a href="new-releases.php">New Releases</a></li>
-                <button type="button" class="btn btn-success navbar-btn">Log In</button>
+                <?php if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) { ?>
+                  <a class="btn btn-success navbar-btn" href="login.php?func=logout">Log Out</a> <?php
+                } else { ?>
+                  <a class="btn btn-success navbar-btn" href="login.php?func=login">Log In</a> <?php
+                } ?>
             </ul>
         </div>
     </div>
