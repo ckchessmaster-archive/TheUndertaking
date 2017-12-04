@@ -29,7 +29,7 @@ if (!isset($_GET["gameID"])) {
                             echo "<p>Not currently logged in. <a href='#'>Log in?</a></p>";
                         ?>
                         <textarea id="comment-box"></textarea>
-                        <button type="button" class="btn btn-primary navbar-btn">Post Comment</button>
+                        <button type="button" class="btn btn-success navbar-btn">Post Comment</button>
                     </form>
                 </div>
                 <div class="col-md-3"></div>

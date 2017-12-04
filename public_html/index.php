@@ -25,9 +25,9 @@
                     <!-- Carousel -->
                     <div class="carousel carousel-container">
                         <div class="carousel-content">
-                            <div class="carousel-slide"><img src="media/featured1.jpg"></div>
-                            <div class="carousel-slide"><img src="media/featured2.jpg"></div>
-                            <div class="carousel-slide"><img src="media/featured3.jpg"></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=9"><img src="media/featured1.jpg"></a></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=1"><img src="media/featured2.jpg"></a></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=15"><img src="media/featured3.jpg"></a></div>
                         </div>
                     </div>
                     <!-- Website description header -->

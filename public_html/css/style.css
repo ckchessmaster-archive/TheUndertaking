@@ -41,14 +41,14 @@ body {
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
-.btn-primary {
+.btn-success {
     background: #81C784;
     color: white;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #93CF95;
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    background: #93CF95 !important;
 }
-.btn-primary:active, .btn-primary.active {
+.btn-success:active, .btn-success.active {
     background: #93CF95;
     box-shadow: none;
 }
@@ -164,7 +164,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
 }
-.carousel-slide > img {
+.carousel-slide > a > img {
     border: 0.8rem solid #CCCCCC;
     height: 40rem;
     max-height: 40rem;
@@ -173,7 +173,7 @@ body {
 
 /* Browsing and search results */
 .results hr {
-    border: 0.2rem solid #CCCCCC;
+    border: 0.12rem solid #CCCCCC;
     margin: 0;
 }
 .results-container {
@@ -186,6 +186,10 @@ body {
 }
 .result .fa-angle-right {
     margin-left: 0.5rem;
+}
+.media-object {
+    height: 101px;
+    width: 101px;
 }
 
 /* ESRB rating */

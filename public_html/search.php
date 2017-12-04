@@ -32,7 +32,7 @@ require_once('../resources/dbManager.php'); ?>
 function displayGames() {
     $conn = getConnection();
 
-    $stmt  = $conn->prepare("CALL GetGameByTitle(?)");
+    $stmt  = $conn->prepare("CALL GetGamesByTitle(?)");
 
     if (isset($_GET['searchKey'])) {
         $stmt->bindParam(1, $_GET['searchKey']);
@@ -72,7 +72,7 @@ function displayGames() {
 } // end displayGames
 
 function shortenDescription($text, $length) {
-    if(strlen($text) > $length) {
+    if (strlen($text) > $length) {
         $text = substr($text, 0, strpos($text, ' ', $length));
         $text .= '...';
     }

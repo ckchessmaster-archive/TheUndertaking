@@ -37,16 +37,19 @@
                         <li><a href="browse.php?genre=Action">Action</a></li>
                         <li><a href="browse.php?genre=Adventure">Adventure</a></li>
                         <li><a href="browse.php?genre=Casual">Casual</a></li>
+                        <li><a href="browse.php?genre=FPS">FPS</a></li>
                         <li><a href="browse.php?genre=Indie">Indie</a></li>
                         <li><a href="browse.php?genre=MMO">MMO</a></li>
                         <li><a href="browse.php?genre=Racing">Racing</a></li>
                         <li><a href="browse.php?genre=RPG">RPG</a></li>
                         <li><a href="browse.php?genre=Simulation">Simulation</a></li>
                         <li><a href="browse.php?genre=Sports">Sports</a></li>
+                        <li><a href="browse.php?genre=Stealth">Stealth</a></li>
+                        <li><a href="browse.php?genre=Strategy">Strategy</a></li>
                     </ul>
                 </li>
                 <li><a href="new-releases.php">New Releases</a></li>
-                <button type="button" class="btn btn-primary navbar-btn">Log In</button>
+                <button type="button" class="btn btn-success navbar-btn">Log In</button>
             </ul>
         </div>
     </div>
