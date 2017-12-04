@@ -19,6 +19,48 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
 <html lang="eng">
     <head>
         <?php include("shared/header.html"); ?>
+        <script>
+          //Globals
+          var validUsername = false;
+          var validPasswordConfirm = false;
+
+          function checkUsername() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if(xhttp.readyState == 4) {
+                if(xhttp.responseText == "false") {
+                  $("#usernameCheck").html('<div id="usernameCheck" class="text-danger">Username Taken!</div>');
+                  validUsername = false;
+                } else {
+                  $("#usernameCheck").html('<div id="usernameCheck" class="text-success">Username Available!</div>');
+                  validUsername = true;
+                }
+                console.log(xhttp.responseText);
+              }
+            };
+
+            xhttp.open("GET", "AJAX.php?func=validateUsername&username=" + $("#inputUsername").val());
+            xhttp.send();
+          }//end checkUsername
+
+          function checkPasswordConfirm() {
+            if($('#inputPassword').val() == $('#inputPasswordConfirm').val()) {
+              $("#passwordConfirmCheck").html('<div id="usernameCheck" class="text-success">Success!</div>');
+              validPasswordConfirm = true;
+            } else {
+              $("#passwordConfirmCheck").html('<div id="usernameCheck" class="text-danger">Passwords do not match!</div>');
+              validPasswordConfirm = false;
+            }
+          }//end checkPasswordConfirm
+
+          function validateForm() {
+            if(validUsername == true && validPasswordConfirm == true) {
+              return true;
+            }
+
+            return false;
+          }
+        </script>
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
@@ -47,7 +89,8 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputUsername">Username</label>
-                            <input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username" />
+                  <input type="text" class="form-control" name="username" id="inputUsername" onchange="checkUsername()" onkeyup="checkUsername()" placeholder="Username" />
+                  <div id="usernameCheck"></div>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword">Password</label>
@@ -55,7 +98,8 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword">Confirm Password</label>
-                            <input type="password" class="form-control" name="passwordConfirm" id="inputPasswordConfirm" placeholder="Password" />
+                  <input type="password" class="form-control" name="passwordConfirm" onchange="checkPasswordConfirm()" onkeyup="checkPasswordConfirm()" id="inputPasswordConfirm" placeholder="Password" />
+                  <div id="passwordConfirmCheck"></div>
                         </div>
                         <div class="col-md-12"><button type="submit" class="btn btn-success">Create My Account</button></div>
                     </form>
@@ -68,6 +112,9 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
 
 <?php
 function createUser($username, $password, $firstName, $lastName, $email) {
+  // make sure user isn't bypassing username check
+  if(validateUsername($username)) {
+    // create new user
     $conn = getConnection();
     $stmt  = $conn->prepare("CALL CreateUser(?, ?, ?, ?, ?)");
 
@@ -78,4 +125,20 @@ function createUser($username, $password, $firstName, $lastName, $email) {
     $stmt->bindParam(5, $email);
 
     $stmt->execute();
-} ?>
+  }
+}
+
+function validateUsername($username) {
+  $conn = getConnection();
+  $stmt  = $conn->prepare("SELECT UserID FROM User WHERE Username LIKE ?");
+  $stmt->bindParam(1, $username);
+  $stmt->execute();
+
+  if($stmt->rowCount() == 0) {
+    return true;
+  }
+
+  return false;
+}
+
+?>
