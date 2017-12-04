@@ -27,10 +27,13 @@ body {
     }
 }
 .page {
-    padding: 2rem 4rem;
+    padding: 4rem;
 }
 
 /* Headers and header rules */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
 .page-header {
     clear: both;
     margin-top: 1rem;
@@ -176,7 +179,19 @@ body {
 **************************************************/
 /* Breadcrumbs */
 .breadcrumb {
-    /*background-color: #CCCCCC;*/
+    background-color: #B0BEC5;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.breadcrumb > li > a {
+    color: #EEEEEE;
+}
+.breadcrumb > li + li:before {
+    color: #EEEEEE;
+    content: "/ ";
+    padding: 0 5px;
 }
 
 /* Browsing and search results */
@@ -191,6 +206,20 @@ body {
 }
 .result .fa-angle-right {
     margin-left: 0.5rem;
+}
+.results::-webkit-scrollbar {
+    width: 15px;
+}
+.results::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-left: 1px solid #f1f1f1;
+}
+.results::-webkit-scrollbar-thumb {
+    background-color: rgba(191, 191, 191, 0.6);	/* Same as #bfbfbf */
+    border-radius: 10px;
+}
+.results::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(191, 191, 191, 8.0);	/* Same as #bfbfbf */
 }
 
 /* Game thumbnail */
