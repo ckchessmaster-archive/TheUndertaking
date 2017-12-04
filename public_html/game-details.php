@@ -19,6 +19,22 @@ if(isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == t
 <html lang="eng">
     <head>
         <?php include("shared/header.html"); ?>
+        <script>
+          function countChars() {
+
+            var count = $('#comment-box').val().length;
+            if(count >= 1920) {
+              $('#chars').html('<span id="chars" class="text-danger">' + count + '</span>');
+            } else {
+              $('#chars').html('<span id="chars">' + count + '</span>');
+            }
+            console.log(count);
+          }
+
+          function validateForm() {
+            return $('#comment-box').val().length <= 1920;
+          }
+        </script>
     </head>
     <body>
         <?php include("shared/nav.php"); ?>
@@ -30,14 +46,15 @@ if(isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == t
                 <div class="col-md-3"></div>
                 <div class="col-md-6 page">
                     <!-- Comment form -->
-                    <form action="game-details.php">
+                    <form action="game-details.php" onsubmit="return validateForm()">
                         <h3>Leave a Comment</h3>
                         <?php //Check if logged in
                         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) { ?>
                           <input type="hidden" name="func" id="func" value="post"/>
                           <input type="hidden" name="gameID" id="gameID" value="<?php echo $_GET["gameID"]; ?>"/>
-                          <textarea name="comment" id="comment-box"></textarea>
-                          <button type="submit" class="btn btn-success navbar-btn">Post Comment</button> <?php
+                          <textarea name="comment" id="comment-box" onkeyup="countChars()" onchange="countChars()"></textarea>
+                          <button type="submit" class="btn btn-success navbar-btn">Post Comment</button>
+                          <span>Characters: <span id="chars">0</span> / 1920</span> <?php
                         } else { ?>
                           <p>Please login to post.</p>
                           <a class="btn btn-success navbar-btn" href="login.php?func=login">Login</a> <?php
