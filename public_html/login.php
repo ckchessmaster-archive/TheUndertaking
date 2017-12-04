@@ -36,7 +36,7 @@ if($_GET["func"] == "logout") {
                 <input type="hidden" name="func" id="func" value="validate"/>
                 <div class="form-group">
                   <h1>Login</h1>
-                  <div>Don't have an account?<a href="#">Sign up here!</a></div>
+                  <div>Don't have an account?<a href="signup.php">Sign up here!</a></div>
                   <?php if(isset($_GET["validate"]) && $_GET["validate"] == "failed") { ?>
                     <div class="text-danger"> Invalid Username or Password!</div> <?php
                   } ?>
@@ -44,7 +44,7 @@ if($_GET["func"] == "logout") {
                   <input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username" />
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword">Username</label>
+                  <label for="inputPassword">Password</label>
                   <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" />
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
