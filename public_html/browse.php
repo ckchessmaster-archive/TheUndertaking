@@ -30,7 +30,7 @@ require_once('../resources/dbManager.php'); ?>
                         else
                         {
                             echo "<li><a href='index.php'>Home</a></li>";
-                            echo "<li><a href='browse.php'>Browse Games</a></li>";
+                            echo "<li>Browse Games</li>";
                             echo "<li class='active'>All</li>";
                         }
                         ?>

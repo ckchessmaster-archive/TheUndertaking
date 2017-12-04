@@ -50,7 +50,6 @@ if (!isset($_GET["gameID"])) {
                                 <span class="comment-subtext">on December 3, 2017 @ 12:39 AM</span>
                             </div>
                         </li>
-                        <hr>
                         <li class="comment">
                             <div class="comment-image">
                                 <img src="media/avatar.svg"/>
@@ -97,9 +96,9 @@ function displayGame() {
                 <span><strong>Developer: </strong><?php echo $result[0]["Developer"]; ?></span>
                 <span><strong>Publisher: </strong><?php echo $result[0]["Publisher"]; ?></span>
                 <span><strong>Release date: </strong><?php echo $result[0]["ReleaseDate"]; ?></span>
-                <span>
-                    <strong>Genre(s): </strong>
-                    <?php $index = 0;
+                <span><strong>Genre(s): </strong>
+                    <?php
+                    $index = 0;
                     foreach($result as $row) {
                         echo '<a href=browse.php?genre=' . $result[$index]["Genre"] . ' class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
                         $index += 1;
@@ -108,7 +107,7 @@ function displayGame() {
             </div>
             <br>
             <div class="page-header"></div>
-            <div><iframe class="trailer" width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
+            <div class="video-container"><iframe width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
         </div>
         <div class="col-md-3"></div>
     </div>

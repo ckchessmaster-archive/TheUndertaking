@@ -1,6 +1,9 @@
 /* COLOR PALETTE
+   aqua:            #4DB6AC
    black:           #26282D
    gray, dark:      #303239
+   gray, light:     #B0BEC5
+   green            #81C784
    white:           #EEEEEE */
 
 /**************************************************
@@ -14,25 +17,28 @@ body {
     padding: 7rem 0 2rem 0;
 }
 
-/* Videos */
-.video-container {
-    position: relative;
-    padding-top: 30px;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
+/* Middle segment */
+.col-md-6 {
+    background-color: #EEEEEE;
+}
+@media (max-width: 992px) {
+    .row {
+        background-color: #EEEEEE;
+    }
+}
+.page {
+    padding: 2rem 4rem;
 }
 
-.video-container iframe, .video-container object, .video-container embed {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    transform: translate(-50%, -50%);
+/* Headers and header rules */
+.page-header {
+    clear: both;
+    margin-top: 1rem;
+    padding: 0;
+    border-bottom: 0.2rem solid #CCCCCC;
 }
 
+/* Buttons */
 .btn {
     border: 0 none;
     letter-spacing: 1px;
@@ -53,8 +59,27 @@ body {
     box-shadow: none;
 }
 
+/* Videos */
+.video-container {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+
 /**************************************************
- Navigation
+ NAVIGATION
 **************************************************/
 /* Navbar */
 .navbar {
@@ -131,33 +156,8 @@ body {
 }
 
 /**************************************************
- MAIN CONTENT
+ INDEX PAGE
 **************************************************/
-/* Middle segment */
-.col-md-6 {
-    background-color: #EEEEEE;
-}
-@media (max-width: 992px) {
-    .row {
-        background-color: #EEEEEE;
-    }
-}
-.page {
-    padding: 2rem 4rem;
-}
-
-/* Headers and header rules */
-.page-header {
-    margin-top: 0;
-    padding: 0;
-    border-bottom: 0.2rem solid #CCCCCC;
-}
-.page hr {
-    border: 0.12rem solid #CCCCCC;
-    clear: both;
-    margin: 3rem 0;
-}
-
 /* Carousel */
 .carousel-container {
     position: relative;
@@ -171,27 +171,38 @@ body {
     width: 100%;
 }
 
-/* Browsing and search results */
-.results hr {
-    border: 0.12rem solid #CCCCCC;
-    margin: 0;
+/**************************************************
+ BROWSE, SEARCH, & NEW RELEASES PAGES
+**************************************************/
+/* Breadcrumbs */
+.breadcrumb {
+    /*background-color: #CCCCCC;*/
 }
+
+/* Browsing and search results */
 .results-container {
-    background-color: #F5F5F5;
+    background-color: #EEEEEE;
     height: 45rem;
     overflow-y: scroll;
 }
 .result {
     padding: 2rem;
+    border-bottom: medium solid #E0E0E0;
 }
 .result .fa-angle-right {
     margin-left: 0.5rem;
 }
+
+/* Game thumbnail */
 .media-object {
     height: 101px;
     width: 101px;
+    border: 0.5rem solid #CCCCCC;
 }
 
+/**************************************************
+ GAME DETAILS PAGE
+**************************************************/
 /* ESRB rating */
 .esrb-rating {
     float: left;
@@ -236,8 +247,8 @@ body {
 }
 .comment-subtext {
     color: #AAAAAA;
-    font-family: Verdana;
-    font-size: 11px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 /**************************************************
