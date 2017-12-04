@@ -22,16 +22,17 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
         <script>
           //Globals
           var validUsername = false;
+          var validPasswordConfirm = false;
 
           function checkUsername() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
               if(xhttp.readyState == 4) {
                 if(xhttp.responseText == "false") {
-                  $("#usernameCheck").html('<span id="usernameCheck" class="text-danger">Username Taken!</span>');
+                  $("#usernameCheck").html('<div id="usernameCheck" class="text-danger">Username Taken!</div>');
                   validUsername = false;
                 } else {
-                  $("#usernameCheck").html('<span id="usernameCheck" class="text-success">Username Available!</span>');
+                  $("#usernameCheck").html('<div id="usernameCheck" class="text-success">Username Available!</div>');
                   validUsername = true;
                 }
                 console.log(xhttp.responseText);
@@ -42,10 +43,22 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
             xhttp.send();
           }//end checkUsername
 
-          function validateForm() {
-            if(validUsername == false) {
-              return false;
+          function checkPasswordConfirm() {
+            if($('#inputPassword').val() == $('#inputPasswordConfirm').val()) {
+              $("#passwordConfirmCheck").html('<div id="usernameCheck" class="text-success">Success!</div>');
+              validPasswordConfirm = true;
+            } else {
+              $("#passwordConfirmCheck").html('<div id="usernameCheck" class="text-danger">Passwords do not match!</div>');
+              validPasswordConfirm = false;
             }
+          }//end checkPasswordConfirm
+
+          function validateForm() {
+            if(validUsername == true && validPasswordConfirm == true) {
+              return true;
+            }
+
+            return false;
           }
         </script>
     </head>
@@ -73,7 +86,8 @@ if(isset($_GET["func"]) && $_GET["func"] == "create") {
                 </div>
                 <div class="form-group">
                   <label for="inputPassword">Confirm Password</label>
-                  <input type="password" class="form-control" name="passwordConfirm" id="inputPasswordConfirm" placeholder="Password" />
+                  <input type="password" class="form-control" name="passwordConfirm" onchange="checkPasswordConfirm()" onkeyup="checkPasswordConfirm()" id="inputPasswordConfirm" placeholder="Password" />
+                  <div id="passwordConfirmCheck"></div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword">First Name</label>
