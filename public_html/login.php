@@ -15,6 +15,7 @@ if($_GET["func"] == "logout") {
 } else if($_GET["func"] == "validate" && isset($_GET["username"]) && isset($_GET["password"])) {
   if(validateLogin($_GET["username"], $_GET["password"])) {
     $_SESSION["loggedIn"] = true;
+    $_SESSION["username"] = $_GET["username"];
     header('Location: index.php');
     exit();
   } else {
