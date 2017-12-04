@@ -12,8 +12,9 @@ if($_GET["func"] == "logout") {
   session_destroy();
   header('Location: login.php?func=login');
   exit();
-} else if($_GET["func"] == "validate") {
-  if(validateLogin()) {
+} else if($_GET["func"] == "validate" && isset($_GET["username"]) && isset($_GET["password"])) {
+  if(validateLogin($_GET["username"], $_GET["password"])) {
+    $_SESSION["loggedIn"] = true;
     header('Location: index.php');
     exit();
   } else {
@@ -57,7 +58,18 @@ if($_GET["func"] == "logout") {
 </html>
 
 <?php
-function validateLogin() {
+function validateLogin($username, $password) {
+  $conn = getConnection();
+  $stmt  = $conn->prepare("SELECT Username, Password FROM User WHERE Username LIKE ?");
+  $stmt->bindParam(1, $username);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+
+  // check if username was valid
+  if($stmt->rowCount() > 0) {
+    // validate password
+    return(password_verify($password, $result[0]["Password"]));
+  }
 
   return false;
 } ?>
