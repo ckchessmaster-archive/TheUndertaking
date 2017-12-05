@@ -90,19 +90,7 @@ function displayGame($gameID) {
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 page">
-            <!-- Rating -->
-            <div class="star-rating">
-                <input type="checkbox" id="star1" value="1" />
-                <label for="star1"></label>
-                <input type="checkbox" id="star2" value="2" />
-                <label for="star2"></label>
-                <input type="checkbox" id="star3" value="3" />
-                <label for="star3"></label>
-                <input type="checkbox" id="star4" value="4" />
-                <label for="star4"></label>
-                <input type="checkbox" id="star5" value="5" />
-                <label for="star5"></label>
-            </div>
+            <?php displayUserRating(); ?>
             <!-- Game title header -->
             <div class="page-header">
                 <h3><?php echo $result[0]["Title"]; ?></h3>
@@ -158,6 +146,35 @@ function displayComments($gameID) {
             </li> <?php
         } ?>
     </ul> <?php
+}
+
+function displayUserRating() {
+  $conn = getConnection();
+  $stmt  = $conn->prepare("SELECT AVG(Rating) as Average FROM UserRating WHERE GameID = ?");
+  $stmt->bindParam(1, $_GET["gameID"]);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+
+  ?>
+  <!-- Rating -->
+  <div class="star-rating">
+    <div style="float:right;"><?php
+    if($result[0]["Average"] == "") {
+      echo "Not rated.";
+    } else {
+      echo "Avg. " . $result[0]["Average"] . "/5";
+    } ?></div>
+    <input type="checkbox" id="star1" value="1" <?php if($result[0]["Average"] > 4.5){ echo 'checked="true"'; } ?> />
+    <label for="star1"></label>
+    <input type="checkbox" id="star2" value="2" <?php if($result[0]["Average"] > 3.5){ echo 'checked="true"'; } ?> />
+    <label for="star2"></label>
+    <input type="checkbox" id="star3" value="3" <?php if($result[0]["Average"] > 2.5){ echo 'checked="true"'; } ?> />
+    <label for="star3"></label>
+    <input type="checkbox" id="star4" value="4" <?php if($result[0]["Average"] > 1.5){ echo 'checked="true"'; } ?> />
+    <label for="star4"></label>
+    <input type="checkbox" id="star5" value="5" <?php if($result[0]["Average"] != ""){ echo 'checked="true"'; } ?> />
+    <label for="star5"></label>
+  </div> <?php
 }
 
 function postComment($username, $gameID, $comment) {
