@@ -17,7 +17,7 @@ if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == 
 ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
         <?php include("shared/header.html"); ?>
         <script>
@@ -123,14 +123,14 @@ function displayGame($gameID) {
                     <?php
                     $index = 0;
                     foreach($result as $row) {
-                        echo '<a href=browse.php?genre=' . $result[$index]["Genre"] . ' class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
+                        echo '<a href="browse.php?genre=' . $result[$index]["Genre"] . '" class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
                         $index += 1;
                     } ?>
                 </span>
             </div>
             <br>
             <div class="page-header"></div>
-            <div class="video-container"><iframe width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
+            <div class="video-container"><iframe width="640" height="360" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
         </div>
         <div class="col-md-3"></div>
     </div>
@@ -148,7 +148,7 @@ function displayComments($gameID) {
         foreach($result as $row) { ?>
             <li class="comment">
                 <div class="comment-image">
-                    <img src="media/avatar.svg"/>
+                    <img src="media/avatar.svg" alt="User Avatar"/>
                 </div>
                 <div class="comment-body">
                     <h5 class="comment-username"><?php echo $row["Username"] ?></h5>
