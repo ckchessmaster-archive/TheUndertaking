@@ -39,6 +39,15 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 0.2rem solid #CCCCCC;
 }
 
+/* Links */
+a {
+    color: #4DB6AC;
+    font-weight: bold;
+}
+a:hover {
+    color: #5FBDB4;
+}
+
 /* Buttons */
 .btn {
     border: 0 none;
@@ -205,20 +214,6 @@ h1, h2, h3, h4, h5, h6 {
 .result .fa-angle-right {
     margin-left: 0.5rem;
 }
-.results::-webkit-scrollbar {
-    width: 15px;
-}
-.results::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    border-left: 1px solid #f1f1f1;
-}
-.results::-webkit-scrollbar-thumb {
-    background-color: rgba(191, 191, 191, 0.6);	/* Same as #bfbfbf */
-    border-radius: 10px;
-}
-.results::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(191, 191, 191, 8.0);	/* Same as #bfbfbf */
-}
 
 /* Game thumbnail */
 .media-object {
@@ -247,6 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Comment section */
 #comment-box {
     resize: vertical;
+    min-height: 50px;
     height: 200px;
     width: 100%;
 }
@@ -283,4 +279,24 @@ h1, h2, h3, h4, h5, h6 {
 **************************************************/
 .rounded {
     border-radius: 1.5rem;
+}
+
+/* Scrollbar */
+.results::-webkit-scrollbar,
+.comment-list::-webkit-scrollbar {
+    width: 15px;
+}
+.results::-webkit-scrollbar-track,
+.comment-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-left: 1px solid #f1f1f1;
+}
+.results::-webkit-scrollbar-thumb,
+.comment-list::-webkit-scrollbar-thumb {
+    background-color: rgba(191, 191, 191, 0.6);	/* Same as #bfbfbf */
+    border-radius: 10px;
+}
+.results::-webkit-scrollbar-thumb:hover,
+.comment-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(191, 191, 191, 8.0);	/* Same as #bfbfbf */
 }

@@ -54,8 +54,8 @@ if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == 
                             <input type="hidden" name="func" id="func" value="post"/>
                             <input type="hidden" name="gameID" id="gameID" value="<?php echo $_GET["gameID"]; ?>"/>
                             <textarea name="comment" id="comment-box" onkeyup="countChars()" onchange="countChars()"></textarea>
-                            <button type="submit" class="btn btn-success navbar-btn">Post Comment</button>
-                            <span>Characters: <span id="chars">0</span> / 1920</span> <?php
+                            <p>Characters: <span id="chars">0</span> / 1920</p>
+                            <button type="submit" class="btn btn-success navbar-btn">Post Comment</button> <?php
                         } else { ?>
                             <p>Please log in to post. Don't have an account? <a href="signup.php">Sign up</a>.</p>
                             <a class="btn btn-success navbar-btn" href="login.php?func=login">Log In</a> <?php
@@ -67,8 +67,11 @@ if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == 
             <br>
             <div class="row">
                 <div class="col-md-3"></div>
-                <!-- Comment section -->
-                <?php displayComments($_GET["gameID"]); ?>
+                <div class="col-md-6 page">
+                    <!-- Comment section -->
+                    <h3>Comments</h3>
+                    <?php displayComments($_GET["gameID"]); ?>
+                </div>
                 <div class="col-md-3"></div>
             </div>
         </div>
@@ -128,26 +131,23 @@ function displayComments($gameID) {
     $stmt->execute();
     $result = $stmt->fetchAll(); ?>
 
-    <div class="col-md-6 page">
-        <ul class="comment-list"> <?php
-            foreach($result as $row) { ?>
-                <li class="comment">
-                    <div class="comment-image">
-                        <img src="media/avatar.svg"/>
-                    </div>
-                    <div class="comment-body">
-                        <h5 class="comment-username"><?php echo $row["Username"] ?></h5>
-                        <p><?php echo $row["Comment"] ?></p>
-                        <span class="comment-subtext">on <?php echo $row["DatePosted"] ?></span>
-                    </div>
-                </li> <?php
-            } ?>
-        </ul>
-    </div><?php
+    <ul class="comment-list"> <?php
+        foreach($result as $row) { ?>
+            <li class="comment">
+                <div class="comment-image">
+                    <img src="media/avatar.svg"/>
+                </div>
+                <div class="comment-body">
+                    <h5 class="comment-username"><?php echo $row["Username"] ?></h5>
+                    <p><?php echo $row["Comment"] ?></p>
+                    <span class="comment-subtext">on <?php echo $row["DatePosted"] ?></span>
+                </div>
+            </li> <?php
+        } ?>
+    </ul> <?php
 }
 
 function postComment($username, $gameID, $comment) {
-    echo $username;
     $conn = getConnection();
     $stmt  = $conn->prepare("CALL CreatePost(?, ?, ?)");
     $stmt->bindParam(1, $username);
