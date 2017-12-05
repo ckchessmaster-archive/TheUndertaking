@@ -53,10 +53,10 @@ INSERT INTO group2.User (Username, Password, FirstName, LastName, EmailAddress)
 VALUES (username, password, lastName, firstName, email);
 END
 
-CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreatePost`(username VARCHAR(50) , gameID int, comment TEXT)
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreatePost`(user VARCHAR(50) , gameID int, comment TEXT)
 BEGIN
 INSERT INTO group2.Post (GameID, UserID, Comment, DatePosted)
-VALUES (gameID, (SELECT UserID FROM User WHERE Username like username), comment, NOW());
+VALUES (gameID, (SELECT UserID FROM User WHERE Username = user), comment, NOW());
 END
 
 CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetPostsByGameID`(gameID int)

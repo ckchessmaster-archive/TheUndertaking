@@ -10,7 +10,8 @@ if (!isset($_GET["gameID"])) {
 // Are we posting a comment?
 if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == true && isset($_GET["gameID"])) {
     postComment($_SESSION["username"], $_GET["gameID"], $_GET["comment"]);
-    header('Location: game-details.php?gameID=' . $_GET["gameID"]);
+    //header('Location: game-details.php?gameID=' . $_GET["gameID"]);
+    echo $_SESSION["username"];
     exit();
 }
 ?>
@@ -146,6 +147,7 @@ function displayComments($gameID) {
 }
 
 function postComment($username, $gameID, $comment) {
+    echo $username;
     $conn = getConnection();
     $stmt  = $conn->prepare("CALL CreatePost(?, ?, ?)");
     $stmt->bindParam(1, $username);
