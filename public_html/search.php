@@ -50,8 +50,8 @@ function displayGames() {
             <div class="result row">
                 <div class="media">
                     <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="media/placeholder.svg" alt="{Game Image}">
+                        <a href="game-details.php?gameID=<?php echo $row["GameID"] ?>">
+                            <img class="media-object" src="media/game-images/<?php echo $row["Image"] ?>" alt="<?php echo $row["Title"] ?>">
                         </a>
                     </div>
                     <div class="media-body">
@@ -61,7 +61,7 @@ function displayGames() {
                             echo shortenDescription($row["Description"], 140);
                             ?>
                         </p>
-                        <p><a href="game-details.php?gameID=<?php echo $row["GameID"] ?>" class="btn btn-primary btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
+                        <p><a href="game-details.php?gameID=<?php echo $row["GameID"] ?>" class="btn btn-success btn-sm" role="button">View <i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
                     </div>
                 </div>
             </div> <?php

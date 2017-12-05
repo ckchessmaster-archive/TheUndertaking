@@ -56,8 +56,8 @@ if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == 
                             <button type="submit" class="btn btn-success navbar-btn">Post Comment</button>
                             <span>Characters: <span id="chars">0</span> / 1920</span> <?php
                         } else { ?>
-                            <p>Please login to post.</p>
-                            <a class="btn btn-success navbar-btn" href="login.php?func=login">Login</a> <?php
+                            <p>Please log in to post. Don't have an account? <a href="signup.php">Sign up</a>.</p>
+                            <a class="btn btn-success navbar-btn" href="login.php?func=login">Log In</a> <?php
                         } ?>
                     </form>
                 </div>

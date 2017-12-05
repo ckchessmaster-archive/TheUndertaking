@@ -57,7 +57,6 @@ if (isset($_GET["func"]) && $_GET["func"] == "create") {
                 if(validUsername == true && validPasswordConfirm == true) {
                     return true;
                 }
-
                 return false;
             }
         </script>
@@ -67,44 +66,48 @@ if (isset($_GET["func"]) && $_GET["func"] == "create") {
         <!-- Main content -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6 page">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 page">
                     <form action="signup.php">
                         <input type="hidden" name="func" id="func" value="create"/>
                         <!-- "Sign Up" header -->
                         <div class="page-header">
                             <h1>Sign Up</h1>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">First Name</label>
-                            <input type="password" class="form-control" name="firstName" id="inputFirstName" placeholder="Bob" />
+                        <p>Already have an account? Log in <a href="login.php?func=login">here</a>.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputPassword">First Name</label>
+                                <input type="password" class="form-control" name="firstName" id="inputFirstName" placeholder="Bob" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword">Last Name</label>
+                                <input type="password" class="form-control" name="lastName" id="inputLastName" placeholder="Ross" />
+                            </div>
+                            <br>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Last Name</label>
-                            <input type="password" class="form-control" name="lastName" id="inputLastName" placeholder="Ross" />
-                        </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <label for="inputUsername">Email</label>
                             <input type="email" class="form-control" name="email" id="inputEmail" placeholder="happylittletrees@gmail.com" />
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <label for="inputUsername">Username</label>
                             <input type="text" class="form-control" name="username" id="inputUsername" onchange="checkUsername()" onkeyup="checkUsername()" placeholder="Username" />
                             <div id="usernameCheck"></div>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <label for="inputPassword">Password</label>
                             <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" />
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <label for="inputPassword">Confirm Password</label>
                             <input type="password" class="form-control" name="passwordConfirm" onchange="checkPasswordConfirm()" onkeyup="checkPasswordConfirm()" id="inputPasswordConfirm" placeholder="Password" />
                             <div id="passwordConfirmCheck"></div>
                         </div>
-                        <div class="col-md-12"><button type="submit" class="btn btn-success">Create My Account</button></div>
+                        <button type="submit" class="btn btn-success">Create My Account</button>
                     </form>
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
             </div>
         </div>
     </body>
@@ -137,7 +140,6 @@ function validateUsername($username) {
     if ($stmt->rowCount() == 0) {
         return true;
     }
-
     return false;
 }
 ?>

@@ -18,16 +18,14 @@ body {
 }
 
 /* Middle segment */
-.col-md-6 {
+.page {
     background-color: #EEEEEE;
+    padding: 4rem;
 }
 @media (max-width: 992px) {
     .row {
         background-color: #EEEEEE;
     }
-}
-.page {
-    padding: 4rem;
 }
 
 /* Headers and header rules */
