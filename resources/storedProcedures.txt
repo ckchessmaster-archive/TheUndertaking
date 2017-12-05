@@ -1,0 +1,68 @@
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGameByID`(id int)
+BEGIN
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate, Game.IsFeatured, Game.Image,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, ESRB.Image, Genre.GenreID, Genre.Genre
+FROM Game
+INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
+INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
+WHERE Game.GameID=id
+ORDER BY Game.Title ASC;
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGamesByGenre`(IN genre VARCHAR(50))
+BEGIN
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate, Game.IsFeatured, Game.Image,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, Genre.GenreID, Genre.Genre
+FROM Game
+INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
+INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
+WHERE Genre.Genre LIKE genre
+ORDER BY Game.Title ASC;
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetGamesByTitle`(title VARCHAR(100))
+BEGIN
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate, Game.IsFeatured, Game.Image,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, ESRB.Image, Genre.GenreID, Genre.Genre
+FROM Game
+INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
+INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
+WHERE Game.Title LIKE CONCAT('%', title, '%')
+ORDER BY Game.Title ASC;
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetNewReleases`()
+BEGIN
+SELECT Game.GameID, Game.Title, Game.Description, Game.Trailer, Game.Developer, Game.Publisher, Game.ReleaseDate, Game.IsFeatured, Game.Image,
+       ESRB.ESRBRatingID, ESRB.RatingSymbol, ESRB.RatingFull, Genre.GenreID, Genre.Genre
+FROM Game
+INNER JOIN GameGenre ON Game.GameID=GameGenre.GameID
+INNER JOIN Genre ON GameGenre.GenreID=Genre.GenreID
+INNER JOIN ESRBRating ESRB ON ESRB.ESRBRatingID=Game.ESRBRatingID
+WHERE Game.ReleaseDate > DATE_SUB(NOW(), INTERVAL 1 YEAR)
+ORDER BY Game.ReleaseDate DESC;
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreateUser`(username VARCHAR(50) , password VARCHAR(128),
+	lastName VARCHAR(50), firstName VARCHAR(50), email VARCHAR(100))
+BEGIN
+INSERT INTO group2.User (Username, Password, FirstName, LastName, EmailAddress)
+VALUES (username, password, lastName, firstName, email);
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `CreatePost`(user VARCHAR(50) , gameID int, comment TEXT)
+BEGIN
+INSERT INTO group2.Post (GameID, UserID, Comment, DatePosted)
+VALUES (gameID, (SELECT UserID FROM User WHERE Username = user), comment, NOW());
+END
+
+CREATE DEFINER=`group2`@`localhost` PROCEDURE `GetPostsByGameID`(gameID int)
+BEGIN
+SELECT * FROM Post
+INNER JOIN User on User.UserID=Post.UserID
+WHERE Post.GameID = gameID
+ORDER BY DatePosted DESC;
+END

@@ -1,0 +1,341 @@
+/* COLOR PALETTE
+   aqua:            #4DB6AC
+   black:           #26282D
+   gray, dark:      #303239
+   gray, light:     #B0BEC5
+   green            #81C784
+   white:           #EEEEEE */
+
+/**************************************************
+ GLOBAL
+**************************************************/
+/* Body */
+body {
+    background-color: #303239;
+    color: #616161;
+    font-family: 'Heebo', sans-serif;
+    padding: 7rem 0 2rem 0;
+}
+
+/* Middle segment */
+.page {
+    background-color: #EEEEEE;
+    padding: 4rem;
+}
+@media (max-width: 992px) {
+    .row {
+        background-color: #EEEEEE;
+    }
+}
+
+/* Headers and header rules */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+.page-header {
+    margin-top: 1rem;
+    padding: 0;
+    border-bottom: 0.2rem solid #CCCCCC;
+}
+
+/* Links */
+a {
+    color: #4DB6AC;
+    font-weight: bold;
+}
+a:hover {
+    color: #5FBDB4;
+}
+
+/* Buttons */
+.btn {
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+.btn-success {
+    background: #81C784;
+    color: white;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    background: #93CF95 !important;
+}
+.btn-success:active, .btn-success.active {
+    background: #93CF95;
+    box-shadow: none;
+}
+
+/* Videos */
+.video-container {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+
+/**************************************************
+ NAVIGATION
+**************************************************/
+/* Navbar */
+.navbar {
+    background-color: #26282D;
+    border-color: #26282D;
+}
+.navbar, .btn {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Logo */
+.navbar #logo {
+    margin-right: 0.5rem;
+}
+
+/* Title */
+.navbar .navbar-brand {
+    color: #4DB6AC;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 900;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #5FBDB4;
+}
+
+/* Search bar */
+.navbar input {
+    background-color: #222428;
+    color: #999999;
+    font-family: 'Karla', sans-serif;
+    font-weight: normal;
+    border: 1px solid #222428;
+}
+.navbar input:focus {
+    border-color: #222428;
+    box-shadow: none;
+    outline: none;
+}
+.navbar .input-group-btn > button,
+.navbar .input-group-btn > button:active {
+    background-color: #222428;
+    border: 1px solid #222428;
+}
+.navbar .input-group-btn > button > i {
+    color: #81C784;
+}
+.navbar .input-group-btn > button > i:hover,
+.navbar .input-group-btn > button > i:focus {
+    color: #93CF95;
+}
+
+/* Link */
+.navbar .navbar-nav > li > a {
+    color: #B0BEC5;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #CDD6DB;
+}
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+    color: #CDD6DB;
+    background-color: #26282D;
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+    color: #CDD6DB;
+    background-color: #26282D;
+}
+
+/**************************************************
+ INDEX PAGE
+**************************************************/
+/* Carousel */
+.carousel-container {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.carousel-slide > a > img {
+    border: 0.8rem solid #CCCCCC;
+    height: 40rem;
+    max-height: 40rem;
+    width: 100%;
+}
+
+/**************************************************
+ BROWSE, SEARCH, & NEW RELEASES PAGES
+**************************************************/
+/* Breadcrumbs */
+.breadcrumb {
+    background-color: #B0BEC5;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.breadcrumb > li > a {
+    color: #EEEEEE;
+}
+.breadcrumb > li + li:before {
+    color: #EEEEEE;
+    content: "/ ";
+    padding: 0 5px;
+}
+
+/* Browsing and search results */
+.results-container {
+    background-color: #EEEEEE;
+    height: 45rem;
+    overflow-y: scroll;
+}
+.result {
+    padding: 2rem;
+    border-bottom: medium solid #E0E0E0;
+}
+.result .fa-angle-right {
+    margin-left: 0.5rem;
+}
+
+/* Game thumbnail */
+.media-object {
+    height: 101px;
+    width: 101px;
+    border: 0.5rem solid #CCCCCC;
+}
+
+/**************************************************
+ GAME DETAILS PAGE
+**************************************************/
+/* User rating */
+.star-rating > input {
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+}
+.star-rating > label {
+    position: relative;
+    float: right;
+    color: #C8C8C8;
+}
+.star-rating > label:before {
+    margin: 5px;
+    content: "\f005";
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 1.5em;
+    color: #CCCCCC;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.star-rating > label:hover {
+    cursor: pointer;
+}
+.star-rating > input:checked ~ label:before {
+    color: #FFD54F;
+}
+.star-rating > label:hover ~ label:before {
+    color: #FFD54F;
+}
+.star-rating > label:hover:before {
+    color: #FFD54F;
+}
+
+/* ESRB rating */
+.esrb-rating {
+    float: left;
+}
+.esrb-rating img {
+    height: 11rem;
+    margin: 0 1.5rem 3rem 0;
+}
+
+/* Game highlights */
+#game-highlights span {
+    display: block;
+}
+
+/* Comment section */
+#comment-box {
+    resize: vertical;
+    min-height: 50px;
+    height: 200px;
+    width: 100%;
+}
+.comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 500px;
+    overflow: auto;
+}
+.comment-list li {
+    margin: 2rem 0;
+}
+.comment-list li > div {
+    display: table-cell;
+}
+.comment-image {
+    float: left;
+    height: 100%;
+    width: 6rem;
+    margin: 1rem 2rem 0 0;
+}
+.comment-image img {
+    width: 100%;
+}
+.comment-subtext {
+    color: #AAAAAA;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/**************************************************
+ MISCELLANEOUS
+**************************************************/
+.rounded {
+    border-radius: 1.5rem;
+}
+
+/* Scrollbar */
+.results::-webkit-scrollbar,
+.comment-list::-webkit-scrollbar {
+    width: 15px;
+}
+.results::-webkit-scrollbar-track,
+.comment-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-left: 1px solid #f1f1f1;
+}
+.results::-webkit-scrollbar-thumb,
+.comment-list::-webkit-scrollbar-thumb {
+    background-color: rgba(191, 191, 191, 0.6);	/* Same as #bfbfbf */
+    border-radius: 10px;
+}
+.results::-webkit-scrollbar-thumb:hover,
+.comment-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(191, 191, 191, 8.0);	/* Same as #bfbfbf */
+}
