@@ -91,6 +91,7 @@ function displayGame($gameID) {
         <div class="col-md-3"></div>
         <div class="col-md-6 page">
             <!-- Rating -->
+            <?php ?>
             <div class="star-rating">
                 <input type="checkbox" id="star1" value="1" />
                 <label for="star1"></label>
