@@ -25,7 +25,7 @@ if( $_GET["func"] == "logout") {
 } ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
         <?php include("shared/header.html"); ?>
     </head>

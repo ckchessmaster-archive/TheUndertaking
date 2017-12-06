@@ -16,7 +16,7 @@ if (isset($_GET["func"]) && $_GET["func"] == "create") {
 ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
         <?php include("shared/header.html"); ?>
         <script>
