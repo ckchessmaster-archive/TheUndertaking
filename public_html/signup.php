@@ -78,11 +78,11 @@ if (isset($_GET["func"]) && $_GET["func"] == "create") {
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="inputPassword">First Name</label>
-                                <input type="password" class="form-control" name="firstName" id="inputFirstName" placeholder="Bob" />
+                                <input type="text" class="form-control" name="firstName" id="inputFirstName" placeholder="Bob" />
                             </div>
                             <div class="col-md-6">
                                 <label for="inputPassword">Last Name</label>
-                                <input type="password" class="form-control" name="lastName" id="inputLastName" placeholder="Ross" />
+                                <input type="text" class="form-control" name="lastName" id="inputLastName" placeholder="Ross" />
                             </div>
                             <br>
                         </div>

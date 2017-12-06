@@ -91,6 +91,7 @@ function displayGame($gameID) {
         <div class="col-md-3"></div>
         <div class="col-md-6 page">
             <?php displayUserRating(); ?>
+            <?php ?>
             <!-- Game title header -->
             <div class="page-header">
                 <h3><?php echo $result[0]["Title"]; ?></h3>
