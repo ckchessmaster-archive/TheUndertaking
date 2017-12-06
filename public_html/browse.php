@@ -2,7 +2,7 @@
 require_once('../resources/dbManager.php'); ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
       <?php include("shared/header.html"); ?>
     </head>

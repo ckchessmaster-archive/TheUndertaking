@@ -15,16 +15,14 @@
         <div id="navbar" class="navbar-collapse collapse">
             <!-- Left alignment -->
             <ul class="nav navbar-nav">
+              <li>
                 <form class="navbar-form navbar-left" role="search" method="get" action="search.php">
-                    <div class="input-group">
-                        <input type="text" class="rounded form-control" placeholder="Search by title" name="searchKey" id="searchKey">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default rounded" type="submit">
-                                <i class="fa fa-adn fa-lg"></i>
-                            </button>
-                        </span>
-                    </div>
+                  <div class="input-group">
+                    <input type="text" class="rounded form-control" placeholder="Search by title" name="searchKey" id="searchKey">
+                    <span class="input-group-btn"><button class="btn btn-default rounded" type="submit"><i class="fa fa-adn fa-lg"></i></button></span>
+                  </div>
                 </form>
+              </li>
             </ul>
             <!-- Right alignment -->
             <ul class="nav navbar-nav navbar-right">
@@ -49,11 +47,15 @@
                     </ul>
                 </li>
                 <li><a href="new-releases.php">New Releases</a></li>
-                <?php if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) { ?>
-                  <a class="btn btn-success navbar-btn" href="login.php?func=logout">Log Out</a> <?php
-                } else { ?>
-                  <a class="btn btn-success navbar-btn" href="login.php?func=login">Log In</a> <?php
-                } ?>
+                <li>
+                  <span>
+                    <?php if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) { ?>
+                      <a class="btn btn-success navbar-btn" href="login.php?func=logout">Log Out</a> <?php
+                    } else { ?>
+                      <a class="btn btn-success navbar-btn" href="login.php?func=login">Log In</a> <?php
+                    } ?>
+                  </span>
+                </li>
             </ul>
         </div>
     </div>

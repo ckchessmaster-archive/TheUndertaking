@@ -17,7 +17,7 @@ if (isset($_GET["func"]) && $_GET["func"] == "post" && $_SESSION["loggedIn"] == 
 ?>
 
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
         <?php include("shared/header.html"); ?>
         <script>
@@ -90,19 +90,7 @@ function displayGame($gameID) {
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 page">
-            <!-- Rating -->
-            <div class="star-rating">
-                <input type="checkbox" id="star1" value="1" />
-                <label for="star1"></label>
-                <input type="checkbox" id="star2" value="2" />
-                <label for="star2"></label>
-                <input type="checkbox" id="star3" value="3" />
-                <label for="star3"></label>
-                <input type="checkbox" id="star4" value="4" />
-                <label for="star4"></label>
-                <input type="checkbox" id="star5" value="5" />
-                <label for="star5"></label>
-            </div>
+            <?php displayUserRating(); ?>
             <!-- Game title header -->
             <div class="page-header">
                 <h3><?php echo $result[0]["Title"]; ?></h3>
@@ -123,14 +111,14 @@ function displayGame($gameID) {
                     <?php
                     $index = 0;
                     foreach($result as $row) {
-                        echo '<a href=browse.php?genre=' . $result[$index]["Genre"] . ' class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
+                        echo '<a href="browse.php?genre=' . $result[$index]["Genre"] . '" class="badge badge-info">' .$result[$index]["Genre"] ."</a> ";
                         $index += 1;
                     } ?>
                 </span>
             </div>
             <br>
             <div class="page-header"></div>
-            <div class="video-container"><iframe width="640px" height="360px" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
+            <div class="video-container"><iframe width="640" height="360" src="<?php echo $result[0]["Trailer"]; ?>"></iframe></div>
         </div>
         <div class="col-md-3"></div>
     </div>
@@ -148,7 +136,7 @@ function displayComments($gameID) {
         foreach($result as $row) { ?>
             <li class="comment">
                 <div class="comment-image">
-                    <img src="media/avatar.svg"/>
+                    <img src="media/avatar.svg" alt="User Avatar"/>
                 </div>
                 <div class="comment-body">
                     <h5 class="comment-username"><?php echo $row["Username"] ?></h5>
@@ -158,6 +146,35 @@ function displayComments($gameID) {
             </li> <?php
         } ?>
     </ul> <?php
+}
+
+function displayUserRating() {
+  $conn = getConnection();
+  $stmt  = $conn->prepare("SELECT AVG(Rating) as Average FROM UserRating WHERE GameID = ?");
+  $stmt->bindParam(1, $_GET["gameID"]);
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+
+  ?>
+  <!-- Rating -->
+  <div class="star-rating">
+    <div style="float:right;"><?php
+    if($result[0]["Average"] == "") {
+      echo "Not rated.";
+    } else {
+      echo "Avg. " . $result[0]["Average"] . "/5";
+    } ?></div>
+    <input type="checkbox" id="star1" value="1" <?php if($result[0]["Average"] > 4.5){ echo 'checked="true"'; } ?> />
+    <label for="star1"></label>
+    <input type="checkbox" id="star2" value="2" <?php if($result[0]["Average"] > 3.5){ echo 'checked="true"'; } ?> />
+    <label for="star2"></label>
+    <input type="checkbox" id="star3" value="3" <?php if($result[0]["Average"] > 2.5){ echo 'checked="true"'; } ?> />
+    <label for="star3"></label>
+    <input type="checkbox" id="star4" value="4" <?php if($result[0]["Average"] > 1.5){ echo 'checked="true"'; } ?> />
+    <label for="star4"></label>
+    <input type="checkbox" id="star5" value="5" <?php if($result[0]["Average"] != ""){ echo 'checked="true"'; } ?> />
+    <label for="star5"></label>
+  </div> <?php
 }
 
 function postComment($username, $gameID, $comment) {

@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
     <head>
       <!-- CSS -->
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
@@ -26,9 +26,9 @@
                     <!-- Carousel -->
                     <div class="carousel carousel-container">
                         <div class="carousel-content">
-                            <div class="carousel-slide"><a href="game-details.php?gameID=9"><img src="media/featured1.jpg"></a></div>
-                            <div class="carousel-slide"><a href="game-details.php?gameID=1"><img src="media/featured2.jpg"></a></div>
-                            <div class="carousel-slide"><a href="game-details.php?gameID=15"><img src="media/featured3.jpg"></a></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=9"><img src="media/featured1.jpg" alt="Featured Image 1"></a></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=1"><img src="media/featured2.jpg" alt="Featured Image 2"></a></div>
+                            <div class="carousel-slide"><a href="game-details.php?gameID=15"><img src="media/featured3.jpg" alt="Featured Image 3"></a></div>
                         </div>
                     </div>
                     <!-- Website description header -->
@@ -36,7 +36,7 @@
                         <h3>What is the Undertaking?</h3>
                     </div>
                     <!-- Website description -->
-                    <p>The Undertaking is Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>The Undertaking is an online video game database of information related to video games. The Website enables registered users to login and search, rank, post comments and even view both up-coming and released video games trailers. The site has wide selection through which users may browse different games by genre and may also choose to be part of our active  gaming community.</p>
                 </div>
                 <div class="col-md-3"></div>
             </div>
